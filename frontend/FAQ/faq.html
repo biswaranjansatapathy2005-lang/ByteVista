@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 50px 0;
+        }
+
+        .main-faq {
+            width: 800px;
+            background: black;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 0 25px #000000a8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-logo {
+            width: 80px;
+            display: block;
+            margin: 0 auto 15px auto;
+        }
+
+        .faq-title {
+            color: #fff;
+            font-size: 36px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.12);
+            margin-bottom: 14px;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .faq-question {
+            padding: 18px 22px;
+            font-size: 19px;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .faq-question::after {
+            content: "+";
+            position: absolute;
+            right: 22px;
+            font-size: 24px;
+            transition: 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 22px;
+            color: #dcdcdc;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 220px;
+            padding: 18px 22px 22px 22px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-faq">
+        <img src="faq.png" class="faq-logo" alt="FAQ Logo">
+
+        <div class="faq-title">Frequently Asked Questions</div>
+
+        <div class="faq-item">
+            <div class="faq-question"> What is Byte Vista?</div>
+            <div class="faq-answer">Byte Vista is an e-learning platform that offers high-quality online courses,
+                tutorials, and training programs designed to help learners build digital and professional skills.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What types of courses does Byte Vista offer?</div>
+            <div class="faq-answer">Byte Vista provides courses in areas such as:
+                <ul>
+                    <li>Programming & Web Development</li>
+                    <li> UI/UX Design</li>
+                    <li>Data Science & Analytics</li>
+                    <li>Cybersecurity</li>
+                    <li> Digital Marketing</li>
+                    <li>Productivity & Soft Skills</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is Byte Vista free to use?</div>
+            <div class="faq-answer">Byte Vista offers a mix of free and premium courses.
+                Free courses cover fundamentals, while premium courses provide advanced training, certifications, and
+                project-based learning.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Do I receive a certificate after completing a course?</div>
+            <div class="faq-answer">Yes! After successfully completing a course, learners receive a Byte Vista
+                Certificate of Completion that can be shared on LinkedIn or added to a resume.</div>
+        </div>
+    </div>
+
+    <script>
+        const faqs = document.querySelectorAll('.faq-item');
+
+        faqs.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

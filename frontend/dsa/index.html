@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>index</title>
+    <style>
+        :root {
+            --bg: #0b0b0c;
+            --card: #0d0f13;
+            --panel: #111317;
+            --muted: #9ca3af;
+            --accent: #3b82f6;
+            --easy: #22c55e;
+            --med: #38bdf8;
+            --hard: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(180deg, var(--bg), #050506);
+            color: #fff;
+            font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            padding: 36px;
+        }
+
+        .wrap {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width:880px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            padding: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.6);
+            transition: transform .28s cubic-bezier(.2, .9, .2, 1), box-shadow .28s, border-color .28s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 18px 40px rgba(59, 130, 246, 0.12);
+            border-color: rgba(59, 130, 246, 0.28);
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 18px;
+            letter-spacing: -0.2px
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .stat {
+            flex: 1;
+            background: var(--panel);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: transform .20s ease, box-shadow .20s ease, border-color .20s ease;
+            cursor: default;
+        }
+
+
+        .stat:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 10px 26px rgba(59, 130, 246, 0.12);
+            border-color: rgba(59, 130, 246, 0.25);
+        }
+
+        .stat .label {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 6px;
+            font-weight: 600
+        }
+
+        .stat .value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff
+        }
+
+        .difficulty-bar {
+            background: var(--panel);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-weight: 700;
+        }
+
+
+        .diff-row {
+            display: flex;
+            gap: 18px;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .diff-col {
+            flex: 1;
+            text-align: center;
+            padding: 8px 6px;
+            border-radius: 8px;
+            background: transparent;
+            transition: transform .18s, box-shadow .18s;
+        }
+
+        .diff-col .count {
+            font-size: 26px;
+            font-weight: 900;
+            margin: 6px 0
+        }
+
+        .diff-col .label {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+
+        .card:hover .diff-col {
+            transform: translateY(0);
+        }
+
+        .diff-col.easy .count {
+            color: var(--easy)
+        }
+
+        .diff-col.medium .count {
+            color: var(--med)
+        }
+
+        .diff-col.hard .count {
+            color: var(--hard)
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 14px
+        }
+
+        .link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color .15s, transform .12s
+        }
+
+        .link:hover {
+            color: #7fb7ff;
+            transform: translateY(-3px)
+        }
+
+        .muted {
+            color: var(--muted);
+            font-weight: 600
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="grid">
+
+            <!-- 1. Basics of Programming -->
+            <article class="card">
+                <h3 class="card-title">Basics of Programming</h3>
+
+                <div class="stats-row">
+                    <div class="stat" title="Questions">
+                        <span class="label">Questions</span>
+                        <span class="value">35</span>
+                    </div>
+
+                    <div class="stat" title="Submodules">
+                        <span class="label">Submodules</span>
+                        <span class="value">4</span>
+                    </div>
+
+                    <div class="stat" title="Completion">
+                        <span class="label">Completion</span>
+                        <span class="value">0%</span>
+                    </div>
+                </div>
+
+                <div class="difficulty-bar">
+                    <div>Difficulty Distribution</div>
+                    <div class="muted">Total: 35</div>
+                </div>
+
+                <div class="diff-row">
+                    <div class="diff-col easy">
+                        <div class="count">20</div>
+                        <div class="label">Easy</div>
+                        <div class="muted">57%</div>
+                    </div>
+                    <div class="diff-col medium">
+                        <div class="count">10</div>
+                        <div class="label">Medium</div>
+                        <div class="muted">28%</div>
+                    </div>
+                    <div class="diff-col hard">
+                        <div class="count">5</div>
+                        <div class="label">Hard</div>
+                        <div class="muted">15%</div>
+                    </div>
+                </div>
+
+                <div class="footer-row">
+                    <a class="link" href="#">View module details ›</a>
+                    <a class="link" href="#">Direct access ›</a>
+                </div>
+            </article>
+
+            <!-- 2. Recursion and Backtracking -->
+            <article class="card">
+                <h3 class="card-title">Recursion and Backtracking</h3>
+
+                <div class="stats-row">
+                    <div class="stat" title="Questions">
+                        <span class="label">Questions</span>
+                        <span class="value">28</span>
+                    </div>
+
+                    <div class="stat" title="Submodules">
+                        <span class="label">Submodules</span>
+                        <span class="value">3</span>
+                    </div>
+
+                    <div class="stat" title="Completion">
+                        <span class="label">Completion</span>
+                        <span class="value">0%</span>
+                    </div>
+                </div>
+
+                <div class="difficulty-bar">
+                    <div>Difficulty Distribution</div>
+                    <div class="muted">Total: 28</div>
+                </div>
+
+                <div class="diff-row">
+                    <div class="diff-col easy">
+                        <div class="count">10</div>
+                        <div class="label">Easy</div>
+                        <div class="muted">35%</div>
+                    </div>
+                    <div class="diff-col medium">
+                        <div class="count">12</div>
+                        <div class="label">Medium</div>
+                        <div class="muted">43%</div>
+                    </div>
+                    <div class="diff-col hard">
+                        <div class="count">6</div>
+                        <div class="label">Hard</div>
+                        <div class="muted">22%</div>
+                    </div>
+                </div>
+
+                <div class="footer-row">
+                    <a class="link" href="#">View module details ›</a>
+                    <a class="link" href="#">Direct access ›</a>
+                </div>
+            </article>
+
+            <!-- 3. Basic Data Structures -->
+            <article class="card">
+                <h3 class="card-title">Basic Data Structures</h3>
+
+                <div class="stats-row">
+                    <div class="stat" title="Questions">
+                        <span class="label">Questions</span>
+                        <span class="value">30</span>
+                    </div>
+
+                    <div class="stat" title="Submodules">
+                        <span class="label">Submodules</span>
+                        <span class="value">4</span>
+                    </div>
+
+                    <div class="stat" title="Completion">
+                        <span class="label">Completion</span>
+                        <span class="value">0%</span>
+                    </div>
+                </div>
+
+                <div class="difficulty-bar">
+                    <div>Difficulty Distribution</div>
+                    <div class="muted">Total: 30</div>
+                </div>
+
+                <div class="diff-row">
+                    <div class="diff-col easy">
+                        <div class="count">18</div>
+                        <div class="label">Easy</div>
+                        <div class="muted">60%</div>
+                    </div>
+                    <div class="diff-col medium">
+                        <div class="count">8</div>
+                        <div class="label">Medium</div>
+                        <div class="muted">26%</div>
+                    </div>
+                    <div class="diff-col hard">
+                        <div class="count">4</div>
+                        <div class="label">Hard</div>
+                        <div class="muted">14%</div>
+                    </div>
+                </div>
+
+                <div class="footer-row">
+                    <a class="link" href="#">View module details ›</a>
+                    <a class="link" href="#">Direct access ›</a>
+                </div>
+            </article>
+
+            <!-- 4. Dynamic Programming -->
+            <article class="card">
+                <h3 class="card-title">Dynamic Programming</h3>
+
+                <div class="stats-row">
+                    <div class="stat" title="Questions">
+                        <span class="label">Questions</span>
+                        <span class="value">32</span>
+                    </div>
+
+                    <div class="stat" title="Submodules">
+                        <span class="label">Submodules</span>
+                        <span class="value">3</span>
+                    </div>
+
+                    <div class="stat" title="Completion">
+                        <span class="label">Completion</span>
+                        <span class="value">0%</span>
+                    </div>
+                </div>
+
+                <div class="difficulty-bar">
+                    <div>Difficulty Distribution</div>
+                    <div class="muted">Total: 32</div>
+                </div>
+
+                <div class="diff-row">
+                    <div class="diff-col easy">
+                        <div class="count">12</div>
+                        <div class="label">Easy</div>
+                        <div class="muted">37%</div>
+                    </div>
+                    <div class="diff-col medium">
+                        <div class="count">15</div>
+                        <div class="label">Medium</div>
+                        <div class="muted">47%</div>
+                    </div>
+                    <div class="diff-col hard">
+                        <div class="count">5</div>
+                        <div class="label">Hard</div>
+                        <div class="muted">16%</div>
+                    </div>
+                </div>
+
+                <div class="footer-row">
+                    <a class="link" href="#">View module details ›</a>
+                    <a class="link" href="#">Direct access ›</a>
+                </div>
+            </article>
+
+            <!-- 5. Advanced Data Structure -->
+            <article class="card">
+                <h3 class="card-title">Advanced Data Structure</h3>
+
+                <div class="stats-row">
+                    <div class="stat" title="Questions">
+                        <span class="label">Questions</span>
+                        <span class="value">27</span>
+                    </div>
+
+                    <div class="stat" title="Submodules">
+                        <span class="label">Submodules</span>
+                        <span class="value">2</span>
+                    </div>
+
+                    <div class="stat" title="Completion">
+                        <span class="label">Completion</span>
+                        <span class="value">0%</span>
+                    </div>
+                </div>
+
+                <div class="difficulty-bar">
+                    <div>Difficulty Distribution</div>
+                    <div class="muted">Total: 27</div>
+                </div>
+
+                <div class="diff-row">
+                    <div class="diff-col easy">
+                        <div class="count">24</div>
+                        <div class="label">Easy</div>
+                        <div class="muted">88.9%</div>
+                    </div>
+                    <div class="diff-col medium">
+                        <div class="count">0</div>
+                        <div class="label">Medium</div>
+                        <div class="muted">0%</div>
+                    </div>
+                    <div class="diff-col hard">
+                        <div class="count">3</div>
+                        <div class="label">Hard</div>
+                        <div class="muted">11.1%</div>
+                    </div>
+                </div>
+
+                <div class="footer-row">
+                    <a class="link" href="#">View module details ›</a>
+                    <a class="link" href="#">Direct access ›</a>
+                </div>
+            </article>
+
+            <!-- 6. Miscellaneous -->
+            <article class="card">
+                <h3 class="card-title">Miscellaneous</h3>
+
+                <div class="stats-row">
+                    <div class="stat" title="Questions">
+                        <span class="label">Questions</span>
+                        <span class="value">6</span>
+                    </div>
+
+                    <div class="stat" title="Submodules">
+                        <span class="label">Submodules</span>
+                        <span class="value">1</span>
+                    </div>
+
+                    <div class="stat" title="Completion">
+                        <span class="label">Completion</span>
+                        <span class="value">0%</span>
+                    </div>
+                </div>
+
+                <div class="difficulty-bar">
+                    <div>Difficulty Distribution</div>
+                    <div class="muted">Total: 6</div>
+                </div>
+
+                <div class="diff-row">
+                    <div class="diff-col easy">
+                        <div class="count">6</div>
+                        <div class="label">Easy</div>
+                        <div class="muted">100%</div>
+                    </div>
+                    <div class="diff-col medium">
+                        <div class="count">0</div>
+                        <div class="label">Medium</div>
+                        <div class="muted">0%</div>
+                    </div>
+                    <div class="diff-col hard">
+                        <div class="count">0</div>
+                        <div class="label">Hard</div>
+                        <div class="muted">0%</div>
+                    </div>
+                </div>
+
+                <div class="footer-row">
+                    <a class="link" href="#">View module details ›</a>
+                    <a class="link" href="#">Direct access ›</a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</body>
+
+</html>
