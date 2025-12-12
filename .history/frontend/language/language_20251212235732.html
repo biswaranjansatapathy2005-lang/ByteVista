@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Course Section</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-icon">&lt;/&gt;</span> **ByteVista**
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">DSA</a></li>
+                <li><a href="#">Web Dev</a></li>
+                <li><a href="#">Resources</a></li>
+                <li><a href="#">IDE</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <button class="sign-in">Sign In</button>
+            <button class="get-started">Get Started</button>
+        </div>
+    </header>
+
+    <section class="learning-paths">
+        <div class="container">
+            <h2 class="section-title">Choose Your Learning Path</h2>
+            <p class="section-subtitle">
+                Start your learning journey with our curated practice paths. From DSA to web development, 
+                we've got you covered with step-by-step guides and challenges.
+            </p>
+
+            <div class="card-grid path-grid">
+                <a href="#" class="card path-card card-dsa-1" data-tag="Beginner">
+                    <div class="card-content">
+                        <h3>DSA Level 1</h3>
+                        <p>Start your DSA journey with easy problems covering arrays, strings, and basic algorithms. Perfect for beginner learning core concepts.</p>
+                        <div class="card-link">
+                            Start Learning <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card path-card card-dsa-2" data-tag="Intermediate">
+                    <div class="card-content">
+                        <h3>DSA Level 2</h3>
+                        <p>Intermediate challenges on stacks, queues, trees, and sorting algorithms. Build strong problem-solving skills with medium difficulty problems.</p>
+                        <div class="card-link">
+                            Challenge Yourself <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card path-card card-dsa-3" data-tag="Advanced">
+                    <div class="card-content">
+                        <h3>DSA Level 3</h3>
+                        <p>Advanced algorithms including dynamic programming, graphs, and complex data structures. Prepare for technical interviews.</p>
+                        <div class="card-link">
+                            Master DSA <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card path-card card-web-dev card-icon-left" data-tag="Projects">
+                    <span class="icon-indicator"><i class="fas fa-code"></i></span>
+                    <div class="card-content">
+                        <h3>Web Development</h3>
+                        <p>Learn frontend, backend, and fullstack development with hands-on projects. Build real-world applications using modern frameworks.</p>
+                        <div class="card-link">
+                            Build Websites <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card path-card card-contests" data-tag="Competitive">
+                    <div class="card-content">
+                        <h3>Coding Contests</h3>
+                        <p>Participate in weekly coding challenges and competitions. Test your skills, compete with others, and win prizes.</p>
+                        <button class="join-btn">Join Contests <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </a>
+
+                <a href="#" class="card path-card card-resources" data-tag="Guided">
+                    <div class="card-content">
+                        <h3>Learning Resources</h3>
+                        <p>Structured learning paths with tutorials, articles, and resources. Follow guided curriculum to build skills in different tech domains.</p>
+                        <div class="card-link">
+                            Explore Resources <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="code-section">
+        <div class="container">
+            <h2 class="code-title">Code in Your Favorite Language</h2>
+            <p class="code-subtitle">
+                Write, compile, and run code in multiple programming languages. No setup required - start coding right in your browser!
+            </p>
+
+            <div class="card-grid lang-grid">
+                <a href="#" class="card lang-card">
+                    <span class="lang-icon lang-python">Py</span>
+                    <div class="lang-details">
+                        <h4>Python</h4>
+                        <span class="lang-ext">.py</span>
+                        <p>Write and run Python code online with our free compiler</p>
+                    </div>
+                </a>
+                <a href="#" class="card lang-card">
+                    <span class="lang-icon lang-js">JS</span>
+                    <div class="lang-details">
+                        <h4>JavaScript</h4>
+                        <span class="lang-ext">.js</span>
+                        <p>Write and run JavaScript code online with our free compiler</p>
+                    </div>
+                </a>
+                <a href="#" class="card lang-card">
+                    <span class="lang-icon lang-java">.java</span>
+                    <div class="lang-details">
+                        <h4>Java</h4>
+                        <span class="lang-ext">.java</span>
+                        <p>Write and run Java code online with our free compiler</p>
+                    </div>
+                </a>
+                <a href="#" class="card lang-card">
+                    <span class="lang-icon lang-ts">TS</span>
+                    <div class="lang-details">
+                        <h4>TypeScript</h4>
+                        <span class="lang-ext">.ts</span>
+                        <p>Write and run TypeScript code online with our free compiler</p>
+                    </div>
+                </a>
+                <a href="#" class="card lang-card">
+                    <span class="lang-icon lang-go">Go</span>
+                    <div class="lang-details">
+                        <h4>Go</h4>
+                        <span class="lang-ext">.go</span>
+                        <p>Write and run Go code online with our free compiler</p>
+                    </div>
+                </a>
+                 <a href="#" class="card lang-card">
+                    <span class="lang-icon lang-kotlin">K</span>
+                    <div class="lang-details">
+                        <h4>Kotlin</h4>
+                        <span class="lang-ext">.kt</span>
+                        <p>Write and run Kotlin code online with our free compiler</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

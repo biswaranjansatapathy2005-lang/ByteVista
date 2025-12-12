@@ -1,0 +1,297 @@
+/* Base Styles for Dark Theme */
+:root {
+    --color-background: #121212; /* Very dark background */
+    --color-card-bg: #1e1e1e; /* Slightly lighter card background */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #aaaaaa;
+    --color-accent-purple: #7b43f9; /* Main CTA purple */
+    --color-border-subtle: #333333;
+    --color-shadow: rgba(0, 0, 0, 0.4);
+
+    /* Tag Colors (adjust as needed) */
+    --tag-beginner-bg: rgba(76, 175, 80, 0.15); /* Greenish */
+    --tag-beginner-text: #4caf50;
+    --tag-intermediate-bg: rgba(255, 193, 7, 0.15); /* Yellowish */
+    --tag-intermediate-text: #ffc107;
+    --tag-advanced-bg: rgba(244, 67, 54, 0.15); /* Reddish */
+    --tag-advanced-text: #f44336;
+    --tag-projects-bg: rgba(121, 85, 72, 0.15); /* Browish */
+    --tag-projects-text: #795548;
+    --tag-competitive-bg: rgba(123, 67, 249, 0.15); /* Purpleish */
+    --tag-competitive-text: #7b43f9;
+    --tag-guided-bg: rgba(33, 150, 243, 0.15); /* Bluish */
+    --tag-guided-text: #2196f3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Use a modern font-family */
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styling - Mock-up based on image */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.logo {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--color-text-primary);
+}
+
+.user-actions .sign-in {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.user-actions .get-started {
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.user-actions .get-started:hover {
+    background-color: #9c6eff; /* Lighter purple on hover */
+}
+
+/* Section Title and Subtitle */
+.learning-paths {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+}
+
+/* Card Grid Layout */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for the main section */
+    gap: 30px;
+}
+
+/* Card General Style */
+.card {
+    display: block; /* Make the whole card clickable */
+    text-decoration: none;
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-card-bg); /* Initial border */
+
+    /* Transition for subtle animation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 15px 30px var(--color-shadow); /* Stronger shadow */
+    border-color: var(--color-accent-purple); /* Border highlight */
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* Tag Styles */
+.tag {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tag-beginner {
+    background-color: var(--tag-beginner-bg);
+    color: var(--tag-beginner-text);
+}
+
+.tag-intermediate {
+    background-color: var(--tag-intermediate-bg);
+    color: var(--tag-intermediate-text);
+}
+
+.tag-advanced {
+    background-color: var(--tag-advanced-bg);
+    color: var(--tag-advanced-text);
+}
+
+.tag-projects, .tag-competitive, .tag-guided {
+    right: auto;
+    left: 30px;
+    top: auto;
+    bottom: 30px;
+    padding: 4px 12px;
+}
+
+.tag-projects {
+    background-color: var(--tag-projects-bg);
+    color: var(--tag-projects-text);
+}
+
+.tag-competitive {
+    background-color: var(--tag-competitive-bg);
+    color: var(--tag-competitive-text);
+}
+
+.tag-guided {
+    background-color: var(--tag-guided-bg);
+    color: var(--tag-guided-text);
+}
+
+/* Card Link/CTA Styling */
+.card-link {
+    color: var(--color-text-primary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+
+.card:hover .card-link {
+    color: var(--color-accent-purple);
+}
+
+.card-link i {
+    transition: transform 0.3s;
+}
+
+/* Animation: Arrow move on hover */
+.card:hover .card-link i {
+    transform: translateX(5px);
+}
+
+/* Specific styling for the Web Development card's icon indicator (left) */
+.icon-indicator {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.card-web-dev:hover .icon-indicator {
+    color: var(--color-accent-purple);
+    border-color: var(--color-accent-purple);
+}
+
+/* Adjust content position for cards with top-left elements */
+.card-web-dev .card-content {
+    margin-top: 50px;
+}
+
+/* Join Contests Button (Purple CTA button inside the card) */
+.join-btn {
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.join-btn:hover {
+    background-color: #9c6eff;
+    transform: scale(1.02);
+}
+
+/* Second Section (Code in Your Favorite Language) */
+.code-section {
+    text-align: center;
+    padding: 80px 0 100px;
+}
+
+.code-title {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, #7b43f9, #a06eff); /* Purple gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    : transparent;
+}
+
+.code-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}

@@ -1,0 +1,309 @@
+/* Base Styles for Dark Theme */
+:root {
+    --color-background: #121212;
+    --color-card-bg: #1e1e1e;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #aaaaaa;
+    --color-accent-purple: #7b43f9;
+    --color-border-subtle: #333333;
+    --color-shadow: rgba(0, 0, 0, 0.4);
+
+    /* Tag Colors */
+    --tag-beginner-bg: rgba(76, 175, 80, 0.15);
+    --tag-beginner-text: #4caf50;
+    --tag-intermediate-bg: rgba(255, 193, 7, 0.15);
+    --tag-intermediate-text: #ffc107;
+    --tag-advanced-bg: rgba(244, 67, 54, 0.15);
+    --tag-advanced-text: #f44336;
+    --tag-projects-bg: rgba(121, 85, 72, 0.15);
+    --tag-projects-text: #795548;
+    --tag-competitive-bg: rgba(123, 67, 249, 0.15);
+    --tag-competitive-text: #7b43f9;
+    --tag-guided-bg: rgba(33, 150, 243, 0.15);
+    --tag-guided-text: #2196f3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--color-background);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ----------------------------------------------------
+   GLASS NAVBAR (ByteVista-style)
+---------------------------------------------------- */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 40px;
+
+    background: rgba(18, 18, 18, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    transition:
+        padding 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        backdrop-filter 0.3s ease;
+}
+
+.main-header.scrolled {
+    background: rgba(18, 18, 18, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    padding: 12px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Logo */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--color-accent-purple);
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+/* Right Side Buttons */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.sign-in {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    cursor: pointer;
+    padding: 8px 14px;
+}
+
+.get-started {
+    background: var(--color-accent-purple);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.get-started:hover {
+    background: #9c6eff;
+}
+
+/* ----------------------------------------------------
+   Section Title
+---------------------------------------------------- */
+.learning-paths {
+    padding: 120px 0 60px; /* Add space because navbar is fixed */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+}
+
+/* ----------------------------------------------------
+   CARD GRID
+---------------------------------------------------- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Card */
+.card {
+    display: block;
+    text-decoration: none;
+    background: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    color: var(--color-text-primary);
+    position: relative;
+
+    border: 1px solid var(--color-card-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px var(--color-shadow);
+    border-color: var(--color-accent-purple);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* Tags */
+.tag {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 18px;
+    text-transform: uppercase;
+}
+
+/* Levels */
+.tag-beginner { background: var(--tag-beginner-bg); color: var(--tag-beginner-text); }
+.tag-intermediate { background: var(--tag-intermediate-bg); color: var(--tag-intermediate-text); }
+.tag-advanced { background: var(--tag-advanced-bg); color: var(--tag-advanced-text); }
+
+/* Left-aligned tags */
+.tag-projects, .tag-competitive, .tag-guided {
+    left: 30px;
+    bottom: 30px;
+    top: auto;
+    padding: 4px 12px;
+}
+
+.tag-projects { background: var(--tag-projects-bg); color: var(--tag-projects-text); }
+.tag-competitive { background: var(--tag-competitive-bg); color: var(--tag-competitive-text); }
+.tag-guided { background: var(--tag-guided-bg); color: var(--tag-guided-text); }
+
+/* Card link */
+.card-link {
+    color: var(--color-text-primary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.card:hover .card-link { color: var(--color-accent-purple); }
+
+.card-link i { transition: transform 0.3s; }
+
+.card:hover .card-link i { transform: translateX(5px); }
+
+/* Web Dev Icon */
+.icon-indicator {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
+
+.card-web-dev:hover .icon-indicator {
+    border-color: var(--color-accent-purple);
+    color: var(--color-accent-purple);
+}
+
+.card-web-dev .card-content { margin-top: 50px; }
+
+/* Contests Button */
+.join-btn {
+    background: var(--color-accent-purple);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.join-btn:hover {
+    background: #9c6eff;
+    transform: scale(1.02);
+}
+

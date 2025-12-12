@@ -1,0 +1,353 @@
+/* Base Styles for Dark Theme */
+:root {
+    --color-background: #121212; /* Very dark background */
+    --color-card-bg: #1e1e1e; /* Slightly lighter card background */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #aaaaaa;
+    --color-accent-purple: #7b43f9; /* Main CTA purple */
+    --color-border-subtle: #333333;
+    --color-shadow: rgba(0, 0, 0, 0.4);
+
+    /* --- Path Tag Colors --- */
+    --tag-beginner-bg: rgba(76, 175, 80, 0.15); /* Greenish */
+    --tag-beginner-text: #4caf50;
+    --tag-intermediate-bg: rgba(255, 193, 7, 0.15); /* Yellowish */
+    --tag-intermediate-text: #ffc107;
+    --tag-advanced-bg: rgba(244, 67, 54, 0.15); /* Reddish */
+    --tag-advanced-text: #f44336;
+    --tag-projects-bg: rgba(121, 85, 72, 0.15); /* Brownish */
+    --tag-projects-text: #795548;
+    --tag-competitive-bg: rgba(123, 67, 249, 0.15); /* Purpleish */
+    --tag-competitive-text: #7b43f9;
+    --tag-guided-bg: rgba(33, 150, 243, 0.15); /* Bluish */
+    --tag-guided-text: #2196f3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header Styling --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.logo {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--color-text-primary);
+}
+
+.user-actions .sign-in {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.user-actions .get-started {
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.user-actions .get-started:hover {
+    background-color: #9c6eff; 
+}
+
+/* --- Section Titles --- */
+.learning-paths {
+    padding: 60px 0 100px;
+}
+
+.language-section {
+    padding-bottom: 100px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+}
+
+/* Code Language Title (Purple Gradient) */
+.code-title {
+    font-size: 3rem;
+    margin-top: 50px;
+    background: linear-gradient(90deg, #7b43f9, #a06eff); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fi: transparent;
+}
+
+/* --- Card Grid Layouts --- */
+.card-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.path-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for paths */
+}
+
+.lang-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for languages */
+}
+
+/* --- Card General Style (Used for both paths and languages) --- */
+.card {
+    display: block; 
+    text-decoration: none;
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-subtle); 
+    height: 100%;
+
+    /* CSS transition for fallback hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Fallback Hover Effect (Used when JS is disabled or during transition reset) */
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px var(--color-shadow); 
+    border-color: var(--color-accent-purple); 
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+/* --- Learning Path Card Specific Styles (Tags and Links) --- */
+.card-path {
+    /* Style used for the background rectangle in the DSA cards */
+    background: linear-gradient(to right, #1e1e1e 80%, #2a2a2a 100%);
+    border-color: #2a2a2a;
+}
+
+/* Path Tag Generation using ::before pseudo-element and data-attributes */
+.card-path::before {
+    content: attr(data-tag);
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* Use the data-color attribute for text color and derive background */
+    color: var(--tag-beginner-text); /* Default fallback */
+    background-color: var(--tag-beginner-bg); /* Default fallback */
+}
+
+.card-path[data-tag="Beginner"]::before { color: var(--tag-beginner-text); background-color: var(--tag-beginner-bg); }
+.card-path[data-tag="Intermediate"]::before { color: var(--tag-intermediate-text); background-color: var(--tag-intermediate-bg); }
+.card-path[data-tag="Advanced"]::before { color: var(--tag-advanced-text); background-color: var(--tag-advanced-bg); }
+
+/* Positioning for lower tags (Projects, Competitive, Guided) */
+.card-path[data-tag="Projects"]::before, 
+.card-path[data-tag="Competitive"]::before, 
+.card-path[data-tag="Guided"]::before {
+    right: auto;
+    left: 30px;
+    top: auto;
+    bottom: 30px;
+    /* Specific colors for bottom tags */
+    color: var(--tag-projects-text); background-color: var(--tag-projects-bg);
+}
+.card-path[data-tag="Competitive"]::before { color: var(--tag-competitive-text); background-color: var(--tag-competitive-bg); }
+.card-path[data-tag="Guided"]::before { color: var(--tag-guided-text); background-color: var(--tag-guided-bg); }
+
+/* Web Dev Icon Indicator (Top Left) */
+.icon-indicator {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    transition: color 0.3s, border-color 0.3s;
+}
+.card-web-dev .card-content { margin-top: 50px; }
+
+/* Link/CTA Styling for Path Cards */
+.card-link {
+    color: var(--color-text-secondary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    transition: color 0.3s;
+}
+
+.card-path:hover .card-link {
+    color: var(--color-accent-purple);
+}
+
+.card-link i {
+    transition: transform 0.3s;
+}
+
+.card-path:hover .card-link i {
+    transform: translateX(5px);
+}
+
+/* Join Contests Button */
+.join-btn {
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.join-btn:hover {
+    background-color: #9c6eff;
+}
+
+/* --- Language Card Specific Styles (Icon Box) --- */
+
+.card-lang {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: left;
+}
+
+.card-lang h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+}
+
+.card-lang .extension {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.card-lang .description {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: var(--icon-bg-color, #333); /* Use CSS variable for unique background */
+    color: var(--color-text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+/* Language Card Hover Effect: Icon Color Change and Glow */
+.card-lang:hover {
+    border-color: var(--color-accent-purple); 
+}
+
+/* CSS for the glow effect on hover */
+.card-lang:hover .icon-box {
+    box-shadow: 0 0 15px 3px rgba(123, 67, 249, 0.5); /* Subtle purple glow */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .path-grid, .lang-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .path-grid, .lang-grid {
+        grid-template-columns: 1fr;
+    }
+    .main-header {
+        flex-direction: column;
+    }
+    nav {
+        margin: 10px 0;
+    }
+    .main-header {
+        padding: 20px;
+    }
+}

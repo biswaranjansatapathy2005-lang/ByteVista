@@ -1,0 +1,362 @@
+/* --- 1. Root Variables & Base Styles --- */
+:root {
+    /* Colors */
+    --color-background: #121212;
+    --color-card-bg: #1e1e1e;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #aaaaaa;
+    --color-accent-purple: #7b43f9;
+    --color-border-subtle: #333333;
+    --color-shadow: rgba(0, 0, 0, 0.6);
+    --color-card-border-hover: #7b43f9;
+
+    /* Tag Colors */
+    --tag-beginner-bg: rgba(76, 175, 80, 0.15); /* Greenish */
+    --tag-beginner-text: #4caf50;
+    --tag-intermediate-bg: rgba(255, 193, 7, 0.15); /* Yellowish */
+    --tag-intermediate-text: #ffc107;
+    --tag-advanced-bg: rgba(244, 67, 54, 0.15); /* Reddish */
+    --tag-advanced-text: #f44336;
+    --tag-projects-bg: rgba(121, 85, 72, 0.15);
+    --tag-projects-text: #795548;
+    --tag-competitive-bg: rgba(123, 67, 249, 0.15);
+    --tag-competitive-text: #7b43f9;
+    --tag-guided-bg: rgba(33, 150, 243, 0.15);
+    --tag-guided-text: #2196f3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 2. Header Styling --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--color-border-subtle);
+    background-color: var(--color-background);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.logo ico
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--color-text-primary);
+}
+
+.user-actions .sign-in {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.user-actions .get-started {
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.user-actions .get-started:hover {
+    background-color: #9c6eff;
+}
+
+/* --- 3. Section Titles --- */
+.learning-paths {
+    padding: 60px 0 100px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+}
+
+/* Code Language Section Title (Gradient) */
+.code-section {
+    padding: 40px 0 100px;
+}
+
+.code-title {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-align: center;
+    /* Apply gradient background to text */
+    background: linear-gradient(90deg, #7b43f9, #a06eff); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.code-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+
+/* --- 4. Card Grids --- */
+.card-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.path-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for learning paths */
+}
+
+.lang-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for language cards */
+}
+
+
+/* --- 5. General Card Styling & CSS Hover Animation --- */
+.card {
+    display: block;
+    text-decoration: none;
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-card-bg); 
+    box-shadow: 0 4px 10px var(--color-shadow);
+
+    /* CSS Transition for smooth hover effects */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card:hover {
+    /* Lift and border effect */
+    transform: translateY(-5px); 
+    border-color: var(--color-card-border-hover); 
+    box-shadow: 0 10px 20px rgba(123, 67, 249, 0.2);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+/* --- 6. Path Card Specifics --- */
+.card-path h3 {
+    font-weight: 700;
+}
+
+.card-path p {
+    margin-bottom: 20px;
+}
+
+/* Tag Styles */
+.tag {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 10;
+}
+
+.tag-beginner { background-color: var(--tag-beginner-bg); color: var(--tag-beginner-text); }
+.tag-intermediate { background-color: var(--tag-intermediate-bg); color: var(--tag-intermediate-text); }
+.tag-advanced { background-color: var(--tag-advanced-bg); color: var(--tag-advanced-text); }
+
+/* Bottom-left tags (Web Dev, Contests, Resources) */
+.card-web-dev .tag,
+.card-contests .tag,
+.card-resources .tag {
+    right: auto;
+    left: 30px;
+    top: auto;
+    bottom: 30px;
+}
+
+/* CTA Link Styling */
+.card-link {
+    color: var(--color-text-primary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+
+.card-path:hover .card-link {
+    color: var(--color-accent-purple); /* Color change on hover */
+}
+
+.card-link i {
+    transition: transform 0.3s;
+}
+
+/* CSS Animation: Arrow move on hover */
+.card-path:hover .card-link i {
+    transform: translateX(5px);
+}
+
+/* Web Development Card Icon */
+.icon-indicator {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 1.5rem;
+    color: var(--color-text-secondary);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.card-web-dev .card-content {
+    margin-top: 50px; /* Push content down due to top icon/tag */
+}
+
+/* Join Contests Button (Purple CTA button inside the card) */
+.join-btn {
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%; /* Full width as seen in the screenshot */
+    margin-top: 15px; 
+}
+
+.join-btn:hover {
+    background-color: #9c6eff;
+    transform: scale(1.01);
+}
+
+/* --- 7. Language Card Specifics --- */
+.card-lang {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid var(--color-border-subtle);
+}
+
+.card-lang:hover {
+    transform: translateY(-3px); /* Less lift for language cards */
+    box-shadow: 0 8px 15px rgba(123, 67, 249, 0.2);
+}
+
+.lang-details {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.card-lang h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+}
+
+.card-lang .extension {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.card-lang p {
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+/* Language Icons (Styling for the square icon block) */
+.lang-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+    /* Common language card gradient/background */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Specific Language Colors (Matching the screenshot's subtle colors) */
+.lang-icon-python { background-color: #306998; }
+.lang-icon-js { background-color: #F7DF1E; color: #1e1e1e; }
+.lang-icon-java i { color: #5382a1; }
+.lang-icon-rust { background-color: #DEA584; color: #1e1e1e; }
+.lang-icon-c { background-color: #A8B9CC; color: #1e1e1e; }
+.lang-icon-cpp { background-color: #00599c; }
+.lang-icon-ts { background-color: #3178C6; }
+.lang-icon-go { background-color: #00ADD8; }
+.lang-icon-kotlin { background-color: #7F52FF; }
+/* ... Add specific colors for other languages (C#, Swift, Ruby, Dart, Zig, Carbon, Wasm) if needed for fidelity ... */

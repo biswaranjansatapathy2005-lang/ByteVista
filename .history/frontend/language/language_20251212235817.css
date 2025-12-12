@@ -1,0 +1,397 @@
+/* --- Global Variables and Base Styles --- */
+:root {
+    --color-background: #121212;
+    --color-card-bg: #1e1e1e;
+    --color-card-bg-hover: #2a2a2a; /* Slightly lighter on hover before JS tilt */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #aaaaaa;
+    --color-accent-purple: #7b43f9; /* Main CTA purple */
+    --color-border-subtle: #333333;
+    --color-shadow-light: rgba(0, 0, 0, 0.2);
+    --color-shadow-dark: rgba(0, 0, 0, 0.6);
+
+    /* Tag Colors */
+    --tag-beginner-bg: #4caf50; 
+    --tag-intermediate-bg: #ffc107;
+    --tag-advanced-bg: #f44336;
+    --tag-projects-bg: #795548;
+    --tag-competitive-bg: #7b43f9; 
+    --tag-guided-bg: #2196f3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Header Styling --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.logo-icon {
+    color: var(--color-accent-purple);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    color: var(--color-text-secondary);
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--color-text-primary);
+}
+
+.user-actions button {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.user-actions .sign-in {
+    background: none;
+    color: var(--color-text-secondary);
+}
+
+.user-actions .get-started {
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-primary);
+    margin-left: 10px;
+}
+
+.user-actions .get-started:hover {
+    background-color: #9c6eff;
+}
+
+
+/* --- Section 1: Learning Paths --- */
+.learning-paths {
+    padding: 60px 0 100px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-text-secondary);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+}
+
+/* General Card and Grid Styling */
+.card-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.path-grid {
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+.card {
+    position: relative;
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    overflow: hidden;
+    border: 1px solid #282828; /* Subtle outer border */
+    transform-style: preserve-3d; /* Required for the JS tilt effect */
+
+    /* Initial CSS transition for non-JS hover parts */
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.3s ease;
+}
+
+/* Card Hover/Animation: Subtle lift and border highlight */
+.card:hover {
+    border-color: var(--color-accent-purple);
+    /* Box shadow is handled by JS for the tilt effect, but we keep a fallback/base */
+    box-shadow: 0 15px 30px var(--color-shadow-dark);
+}
+
+/* Path Card Specifics */
+.path-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.path-card p {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* Tag Styles - Note: These are styled as tags for the path cards */
+.path-card::before {
+    content: attr(data-tag);
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Tag Color Mapping */
+.path-card[data-tag="Beginner"]::before {
+    background-color: rgba(76, 175, 80, 0.15); 
+    color: var(--tag-beginner-bg);
+}
+.path-card[data-tag="Intermediate"]::before {
+    background-color: rgba(255, 193, 7, 0.15); 
+    color: var(--tag-intermediate-bg);
+}
+.path-card[data-tag="Advanced"]::before {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: var(--tag-advanced-bg);
+}
+.path-card[data-tag="Projects"]::before {
+    background-color: rgba(121, 85, 72, 0.15);
+    color: var(--tag-projects-bg);
+    right: auto;
+    left: 80px; /* Shift to the right of the icon */
+}
+.path-card[data-tag="Competitive"]::before {
+    background-color: rgba(123, 67, 249, 0.15);
+    color: var(--tag-competitive-bg);
+    top: auto;
+    bottom: 30px;
+}
+.path-card[data-tag="Guided"]::before {
+    background-color: rgba(33, 150, 243, 0.15);
+    color: var(--tag-guided-bg);
+    top: auto;
+    bottom: 30px;
+}
+
+/* CTA Link (Bottom Arrow) */
+.card-link {
+    color: var(--color-text-primary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+
+.path-card:hover .card-link {
+    color: var(--color-accent-purple);
+}
+
+.card-link i {
+    transition: transform 0.3s;
+}
+
+/* Animation: Arrow move on hover (CSS-only part) */
+.path-card:hover .card-link i {
+    transform: translateX(5px);
+}
+
+/* Web Development Card Icon */
+.card-icon-left .icon-indicator {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 8px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.card-icon-left:hover .icon-indicator {
+    color: var(--color-accent-purple);
+    border-color: var(--color-accent-purple);
+}
+
+.card-icon-left .card-content {
+    margin-top: 50px; /* Push content down past icon/tag */
+}
+
+/* Join Contests Button */
+.join-btn {
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.join-btn:hover {
+    background-color: #9c6eff;
+}
+
+
+/* --- Section 2: Code in Your Favorite Language --- */
+.code-section {
+    text-align: center;
+    padding: 40px 0 100px;
+}
+
+.code-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    /* Gradient from the screenshot */
+    background: linear-gradient(90deg, #3772ff, #7b43f9, #a06eff); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.code-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.lang-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for language cards */
+    gap: 20px;
+}
+
+.lang-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    text-align: left;
+    height: 100%;
+    /* Override path-card specific styles */
+    border: 1px solid #282828;
+}
+
+.lang-card:hover {
+    background-color: var(--color-card-bg-hover);
+}
+
+.lang-icon {
+    width: 45px;
+    min-width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-details h4 {
+    margin-bottom: 2px;
+    font-size: 1.1rem;
+}
+
+.lang-ext {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 5px;
+}
+
+.lang-details p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+}
+
+/* Language Icon Colors (Mocking the icons from the screenshot) */
+.lang-python { background-color: #3776ab; }
+.lang-js { background-color: #f7df1e; color: #323330; }
+.lang-java { background-color: #5382a1; }
+.lang-ts { background-color: #3178c6; }
+.lang-go { background-color: #00add8; }
+.lang-kotlin { background-color: #7f52ff; }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .path-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .lang-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .path-grid {
+        grid-template-columns: 1fr;
+    }
+    .lang-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .main-header {
+        flex-direction: column;
+    }
+    nav {
+        margin: 10px 0;
+    }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteVista-style Course Section</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+    <a href="#" class="brand-logo">
+        <span class="logo-icon">&lt;/&gt;</span>
+        <span class="logo-text">ByteVista</span>
+    </a>
+
+    <nav class="nav-links">
+        <a href="#">Problems</a>
+        <a href="#">Web Dev</a>
+        <a href="#">IDE</a>
+        <a href="#">Resources</a>
+    </nav>
+
+    <div class="user-actions">
+        <button class="theme-toggle" aria-label="Toggle Theme">☀</button>
+        <button class="sign-in">Sign In</button>
+        <button class="get-started">Get Started</button>
+    </div>
+</header>
+
+    <script>
+    const header = document.querySelector('.main-header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
+
+
+    <section class="learning-paths">
+        <div class="container">
+            <h2 class="section-title">Choose Your Learning Path</h2>
+            <p class="section-subtitle">
+                Start your learning journey with our curated practice paths. From DSA to web development, 
+                we've got you covered with step-by-step guides and challenge problems.
+            </p>
+
+            <div class="card-grid">
+                <a href="#" class="card card-dsa-1">
+                    <span class="tag tag-beginner">Beginner</span>
+                    <div class="card-content">
+                        <h3>DSA Level 1</h3>
+                        <p>Start your DSA journey with easy problems covering arrays, strings, and basic algorithms. Perfect for beginner learning core concepts.</p>
+                        <div class="card-link">
+                            Start Learning <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card card-dsa-2">
+                    <span class="tag tag-intermediate">Intermediate</span>
+                    <div class="card-content">
+                        <h3>DSA Level 2</h3>
+                        <p>Intermediate challenges on stacks, queues, trees, and sorting algorithms. Build strong problem-solving skills with medium difficulty problems.</p>
+                        <div class="card-link">
+                            Challenge Yourself <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card card-dsa-3">
+                    <span class="tag tag-advanced">Advanced</span>
+                    <div class="card-content">
+                        <h3>DSA Level 3</h3>
+                        <p>Advanced algorithms including dynamic programming, graphs, and complex data structures. Prepare for technical interviews.</p>
+                        <div class="card-link">
+                            Master DSA <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card card-web-dev">
+                    <span class="icon-indicator"><i class="fas fa-code"></i></span>
+                    <span class="tag tag-projects">Projects</span>
+                    <div class="card-content">
+                        <h3>Web Development</h3>
+                        <p>Learn frontend, backend, and fullstack development with hands-on projects. Build real-world applications using modern frameworks.</p>
+                        <div class="card-link">
+                            Build Websites <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card card-contests">
+                    <span class="tag tag-competitive">Competitive</span>
+                    <div class="card-content">
+                        <h3>Coding Contests</h3>
+                        <p>Participate in weekly coding challenges and competitions. Test your skills, compete with others, and win prizes.</p>
+                        <button class="join-btn">Join Contests <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </a>
+
+                <a href="#" class="card card-resources">
+                    <span class="tag tag-guided">Guided</span>
+                    <div class="card-content">
+                        <h3>Learning Resources</h3>
+                        <p>Structured learning paths with tutorials, articles, and resources. Follow guided curriculum to build skills in different tech domain.</p>
+                        <div class="card-link">
+                            Explore Resources <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script src="course.js"></script>
+</body>
+</html>
